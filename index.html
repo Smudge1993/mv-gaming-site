@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06090e">
+  <meta name="description" content="Minervan Vanguard — an independent gaming community, online guild and game-development project.">
+  <title>Minervan Vanguard | One Vanguard. Many Worlds.</title>
+
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="stylesheet" href="./styles.css">
+
+  <script src="./site-config.js" defer></script>
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Minervan Vanguard home">
+        <img src="./assets/favicon.png" alt="" width="40" height="40">
+        <span>
+          <strong>MINERVAN</strong>
+          <small>VANGUARD</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="sr-only">Open navigation</span>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-nav>
+        <a href="#game">Our Game</a>
+        <a href="#star-citizen">Star Citizen</a>
+        <a href="#torn">Torn</a>
+        <a href="#community">Community</a>
+        <a href="#updates">Updates</a>
+        <a class="button button-small button-outline js-discord-link" href="#community">Join Discord</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="hero-grid container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Independent gaming community</p>
+          <h1>One Vanguard.<br><span>Many Worlds.</span></h1>
+          <p class="hero-lead">
+            Minervan Vanguard brings together our game in development, our Discord community,
+            and our guild presence across Star Citizen and Torn.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary js-discord-link" href="#community">Join the Discord</a>
+            <a class="button button-ghost" href="#divisions">Explore the Vanguard</a>
+          </div>
+
+          <dl class="hero-stats" aria-label="Minervan Vanguard at a glance">
+            <div>
+              <dt>03</dt>
+              <dd>Active fronts</dd>
+            </div>
+            <div>
+              <dt>01</dt>
+              <dd>Shared community</dd>
+            </div>
+            <div>
+              <dt>∞</dt>
+              <dd>Room to grow</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-emblem reveal" aria-label="Minervan Vanguard crest">
+          <div class="emblem-orbit" aria-hidden="true"></div>
+          <img src="./assets/minervan-vanguard-white.png" alt="Minervan Vanguard crest">
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll to deploy</span>
+        <i></i>
+      </div>
+    </section>
+
+    <section class="section intro" id="divisions">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">The Vanguard</p>
+          <h2>Different worlds. Same banner.</h2>
+          <p>
+            This site is the central home for everything under the Minervan Vanguard name:
+            development, organised play and the people behind it all.
+          </p>
+        </div>
+
+        <div class="division-grid">
+          <article class="division-card division-card-game reveal" id="game">
+            <div class="card-code">DEV / 01</div>
+            <div class="card-mark">MV</div>
+            <div class="card-content">
+              <p class="card-label">In development</p>
+              <h3 class="js-game-title">Our Game</h3>
+              <p class="js-game-description">
+                A new project is taking shape. Follow the concept, progress reports,
+                screenshots and development milestones as the game grows.
+              </p>
+              <a class="text-link" href="#updates">View development updates <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="division-card reveal" id="star-citizen">
+            <div class="card-code">ORG / 02</div>
+            <div class="card-mark">SC</div>
+            <div class="card-content">
+              <p class="card-label">Star Citizen</p>
+              <h3>Minervan Vanguard in the ’verse</h3>
+              <p>
+                Cooperative operations, exploration, logistics and the occasional
+                beautifully organised catastrophe.
+              </p>
+              <a class="text-link js-star-citizen-link" href="#community">
+                Visit our organisation <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="division-card reveal" id="torn">
+            <div class="card-code">FACTION / 03</div>
+            <div class="card-mark">T</div>
+            <div class="card-content">
+              <p class="card-label">Torn</p>
+              <h3>Strategy, progression and faction life</h3>
+              <p>
+                Our home in Torn for members who enjoy long-term progression,
+                coordinated play and a community that exists beyond one title.
+              </p>
+              <a class="text-link js-torn-link" href="#community">
+                View our Torn presence <span>→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section community-section" id="community">
+      <div class="container community-grid">
+        <div class="community-logo reveal">
+          <div class="colour-logo-panel">
+            <img src="./assets/minervan-vanguard-colour.png" alt="Coloured Minervan Vanguard crest">
+          </div>
+        </div>
+
+        <div class="community-copy reveal">
+          <p class="eyebrow">The common room</p>
+          <h2>The Discord holds it all together.</h2>
+          <p>
+            Our Discord is where game development, guild planning, events, screenshots,
+            feedback and general nonsense meet. You do not need to play every game to belong.
+          </p>
+
+          <div class="community-points">
+            <div>
+              <strong>Organised channels</strong>
+              <span>Separate spaces for development, Star Citizen, Torn and general chat.</span>
+            </div>
+            <div>
+              <strong>Shared identity</strong>
+              <span>One community rather than a graveyard of disconnected guild servers.</span>
+            </div>
+            <div>
+              <strong>Built to expand</strong>
+              <span>New games and projects can join without rebuilding the whole brand.</span>
+            </div>
+          </div>
+
+          <a class="button button-primary js-discord-link" href="#">Enter the Discord</a>
+          <p class="config-note" data-config-note>
+            Add your real invite link in <code>site-config.js</code> to activate this button.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section principles">
+      <div class="container">
+        <div class="section-heading compact reveal">
+          <p class="eyebrow">Our character</p>
+          <h2>Serious enough to organise. Relaxed enough to enjoy it.</h2>
+        </div>
+
+        <div class="principle-grid">
+          <article class="reveal">
+            <span>01</span>
+            <h3>Community first</h3>
+            <p>The people matter more than any particular game, rank or collection of digital spaceships.</p>
+          </article>
+          <article class="reveal">
+            <span>02</span>
+            <h3>Competence without ego</h3>
+            <p>We value teamwork, reliability and learning without turning leisure time into unpaid military service.</p>
+          </article>
+          <article class="reveal">
+            <span>03</span>
+            <h3>Build for the long term</h3>
+            <p>The Vanguard is intended to survive changing games, projects and platforms.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section updates-section" id="updates">
+      <div class="container">
+        <div class="section-heading split reveal">
+          <div>
+            <p class="eyebrow">Latest transmissions</p>
+            <h2>Development and community updates</h2>
+          </div>
+          <p>
+            These are starter cards. Replace them with your real devlogs, operation reports,
+            recruitment posts or screenshots.
+          </p>
+        </div>
+
+        <div class="updates-grid">
+          <article class="update-card reveal">
+            <div class="update-meta">
+              <span>Development</span>
+              <time datetime="2026-07-26">26 July 2026</time>
+            </div>
+            <h3>The new Minervan Vanguard website begins</h3>
+            <p>Our central home is being rebuilt to unite game development and the wider guild community.</p>
+            <a href="#game">Read update <span>→</span></a>
+          </article>
+
+          <article class="update-card reveal">
+            <div class="update-meta">
+              <span>Star Citizen</span>
+              <time datetime="2026-07-26">Coming soon</time>
+            </div>
+            <h3>Organisation profile and operation gallery</h3>
+            <p>Add your role, activity focus, recruitment information and the best screenshots from the ’verse.</p>
+            <a class="js-star-citizen-link" href="#star-citizen">View organisation <span>→</span></a>
+          </article>
+
+          <article class="update-card reveal">
+            <div class="update-meta">
+              <span>Torn</span>
+              <time datetime="2026-07-26">Coming soon</time>
+            </div>
+            <h3>Faction profile and member information</h3>
+            <p>Use this space for faction milestones, recruitment status, wars and community notices.</p>
+            <a class="js-torn-link" href="#torn">View Torn presence <span>→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-inner reveal">
+        <div>
+          <p class="eyebrow">Stand with the Vanguard</p>
+          <h2>There is room beneath the banner.</h2>
+        </div>
+        <a class="button button-light js-discord-link" href="#community">Join Minervan Vanguard</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="./assets/favicon.png" alt="" width="48" height="48">
+        <div>
+          <strong>Minervan Vanguard</strong>
+          <span>One Vanguard. Many Worlds.</span>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a class="js-discord-link" href="#community">Discord</a>
+        <a class="js-star-citizen-link" href="#star-citizen">Star Citizen</a>
+        <a class="js-torn-link" href="#torn">Torn</a>
+      </div>
+
+      <p class="footer-legal">
+        © <span data-current-year></span> Minervan Vanguard.
+        Not affiliated with Cloud Imperium Games or Torn.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
