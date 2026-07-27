@@ -22,11 +22,53 @@ if(viewer){
   const fail=(message)=>{if(status){status.classList.add("is-error");status.textContent=message}};
   try{
     const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:"high-performance"});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.setClearColor(0x000000,0);renderer.outputColorSpace=THREE.SRGBColorSpace;
-    const scene=new THREE.Scene(), camera=new THREE.PerspectiveCamera(35,1,.01,100);camera.position.set(3.2,1.55,5.3);
+    const scene=new THREE.Scene(), camera=new THREE.PerspectiveCamera(35,1,.01,100);
+    camera.position.set(0,1.05,5.8);
+    camera.lookAt(0,0,0);
     const shipGroup=new THREE.Group();shipGroup.rotation.x=-.12;scene.add(shipGroup);scene.add(new THREE.HemisphereLight(0xdaf8ff,0x071017,1.8));
     const key=new THREE.DirectionalLight(0xe9fbff,3.2);key.position.set(4,5,5);scene.add(key);const rim=new THREE.DirectionalLight(0x3fb8db,2.6);rim.position.set(-4,2,-4);scene.add(rim);const fill=new THREE.PointLight(0x6ed8ef,18,14);fill.position.set(0,-2,3);scene.add(fill);
     let dragging=false,previousX=0,velocity=0,modelLoaded=false;const timeout=window.setTimeout(()=>{if(!modelLoaded)fail("The Super Hornet model is taking too long to load. Refresh the page to try again.")},20000);
-    new GLTFLoader().load(modelUrl,(gltf)=>{window.clearTimeout(timeout);modelLoaded=true;const model=gltf.scene;const box=new THREE.Box3().setFromObject(model), centre=box.getCenter(new THREE.Vector3()), size=box.getSize(new THREE.Vector3()), largest=Math.max(size.x,size.y,size.z)||1;model.position.sub(centre);model.scale.setScalar(3.7/largest);model.traverse((child)=>{if(child.isMesh){child.material=new THREE.MeshStandardMaterial({color:0x91a8b3,metalness:.78,roughness:.34,side:THREE.DoubleSide})}});shipGroup.add(model);status?.remove()},undefined,(error)=>{window.clearTimeout(timeout);console.error(error);fail("The Super Hornet model could not be loaded in this browser.")});
+    new GLTFLoader().load(modelUrl,(gltf)=>{
+      window.clearTimeout(timeout);
+      modelLoaded=true;
+
+      const model=gltf.scene;
+      const unscaledBox=new THREE.Box3().setFromObject(model);
+      const unscaledSize=unscaledBox.getSize(new THREE.Vector3());
+      const largest=Math.max(unscaledSize.x,unscaledSize.y,unscaledSize.z)||1;
+      const scale=3.7/largest;
+
+      model.scale.setScalar(scale);
+      model.updateMatrixWorld(true);
+
+      // Centre after scaling. Doing this before scaling can leave a converted
+      // model visibly offset even though its geometry loaded correctly.
+      const scaledBox=new THREE.Box3().setFromObject(model);
+      const scaledCentre=scaledBox.getCenter(new THREE.Vector3());
+      model.position.sub(scaledCentre);
+
+      model.traverse((child)=>{
+        if(child.isMesh){
+          child.material=new THREE.MeshStandardMaterial({
+            color:0xb8cbd3,
+            metalness:.72,
+            roughness:.3,
+            side:THREE.DoubleSide
+          });
+          child.castShadow=false;
+          child.receiveShadow=false;
+        }
+      });
+
+      shipGroup.add(model);
+      shipGroup.rotation.set(-.08,.34,0);
+      camera.lookAt(0,0,0);
+      status?.remove();
+    },undefined,(error)=>{
+      window.clearTimeout(timeout);
+      console.error(error);
+      fail("The Super Hornet model could not be loaded in this browser.");
+    });
     const resize=()=>{const width=viewer.clientWidth,height=viewer.clientHeight;renderer.setSize(width,height,false);camera.aspect=width/Math.max(height,1);camera.updateProjectionMatrix()};resize();window.addEventListener("resize",resize);if("ResizeObserver" in window)new ResizeObserver(resize).observe(viewer);
     viewer.addEventListener("pointerdown",(event)=>{dragging=true;previousX=event.clientX;velocity=0;viewer.setPointerCapture?.(event.pointerId)});viewer.addEventListener("pointermove",(event)=>{if(!dragging)return;const delta=event.clientX-previousX;previousX=event.clientX;shipGroup.rotation.y+=delta*.008;velocity=delta*.0018});["pointerup","pointercancel","pointerleave"].forEach(type=>viewer.addEventListener(type,()=>dragging=false));
     let visible=true;if("IntersectionObserver" in window)new IntersectionObserver(entries=>visible=entries[0]?.isIntersecting??true,{threshold:.02}).observe(viewer);const clock=new THREE.Clock();const animate=()=>{requestAnimationFrame(animate);const delta=Math.min(clock.getDelta(),.04);if(visible){if(!dragging){shipGroup.rotation.y+=.16*delta+velocity;velocity*=.94}renderer.render(scene,camera)}};animate();
