@@ -1,4 +1,4 @@
-# Minervan Vanguard website
+# Minervan Vanguard website — V2
 
 A responsive static website for **mv-gaming.org**. It uses plain HTML, CSS and JavaScript, so there is no build process and no paid website builder is required.
 
@@ -124,3 +124,19 @@ minervan-vanguard-site/
 ## Important
 
 This is a static website. It is excellent for pages, screenshots, news posts and outbound links. Features such as user accounts, a database, automatic posting or a private admin panel would need a backend or a content-management system later.
+
+
+## V2 changes
+
+- moving network ticker
+- sci-fi perspective grid
+- floating status readouts around the crest
+- warmer, less formal copy
+- live network strip
+- staggered cards and stronger hover effects
+- subtle scanline texture
+
+
+## Star Citizen subpage
+
+The homepage now links to `star-citizen.html`. The page uses the supplied Star Citizen images and audio without editing their files. Edit the organisation and Discord URLs in the existing `site-config.js`.

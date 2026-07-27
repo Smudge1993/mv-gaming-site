@@ -95,4 +95,11 @@
   );
 
   revealElements.forEach((element) => observer.observe(element));
+
+  const originalTitle = document.title;
+  document.addEventListener("visibilitychange", () => {
+    document.title = document.hidden
+      ? "The Vanguard is still here"
+      : originalTitle;
+  });
 })();
