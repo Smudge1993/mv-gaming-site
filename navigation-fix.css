@@ -1,0 +1,39 @@
+/*
+  MINERVAN VANGUARD — DESKTOP GAMES MENU FIX
+
+  The menu was positioned one rem below its button, leaving a dead zone.
+  This invisible bridge keeps the parent hovered while the pointer travels
+  from the Games button into the dropdown.
+*/
+
+@media (min-width: 981px) {
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown::before {
+    position: absolute;
+    top: 100%;
+    right: -1rem;
+    left: -1rem;
+    z-index: 119;
+    height: 1rem;
+    content: "";
+  }
+
+  .nav-dropdown-menu {
+    top: calc(100% + 0.7rem);
+  }
+
+  /*
+    Keep the menu open while either the toggle, bridge or menu itself is
+    hovered. focus-within still supports keyboard users.
+  */
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu,
+  .nav-dropdown.is-open .nav-dropdown-menu {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+  }
+}
