@@ -11,10 +11,29 @@
   <link rel="stylesheet" href="./star-citizen.css">
 
   <script src="./site-config.js" defer></script>
+
+  <!-- The supplied Super Hornet is an OpenCTM model. These pinned legacy
+       libraries are used only to display that unchanged file in-browser. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/107/three.min.js" defer></script>
+  <script src="https://unpkg.com/three@0.107.0/examples/js/loaders/ctm/lzma.js" defer></script>
+  <script src="https://unpkg.com/three@0.107.0/examples/js/loaders/ctm/CTM.js" defer></script>
+  <script src="https://unpkg.com/three@0.107.0/examples/js/loaders/ctm/CTMLoader.js" defer></script>
+
   <script src="./star-citizen.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <audio data-soundtrack autoplay loop preload="auto">
+    <source src="./assets/star-citizen/SC_MainTheme_Intro_Loop.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="sound-dock" type="button" data-sound-toggle aria-pressed="false" aria-label="Mute soundtrack">
+    <span class="sound-dock-icon" aria-hidden="true">
+      <i></i><i></i><i></i><i></i>
+    </span>
+    <span data-sound-label>Mute</span>
+  </button>
 
   <header class="sc-header" data-header>
     <div class="sc-container header-inner">
@@ -22,7 +41,7 @@
         <img src="./assets/favicon.png" alt="" width="42" height="42">
         <span>
           <strong>MINERVAN VANGUARD</strong>
-          <small>STAR CITIZEN DIVISION</small>
+          <small>IN THE ’VERSE</small>
         </span>
       </a>
 
@@ -79,13 +98,6 @@
             <strong>MV-SC / 01</strong>
             <span>CREW UP. LAUNCH OUT.</span>
           </div>
-          <button class="sound-button" type="button" data-sound-toggle aria-pressed="false">
-            <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-            <span data-sound-label>Play soundtrack</span>
-          </button>
-          <audio data-soundtrack loop preload="metadata">
-            <source src="./assets/star-citizen/SC_MainTheme_Intro_Loop.mp3" type="audio/mpeg">
-          </audio>
         </aside>
       </div>
 
@@ -162,36 +174,88 @@
     </section>
 
     <section class="sc-section fleet-section" id="fleet">
-      <div class="sc-container fleet-layout">
-        <div class="fleet-intro reveal">
-          <p class="kicker">HANGAR ARCHIVE</p>
-          <h2>Two familiar hulls. Plenty of bad ideas.</h2>
+      <div class="sc-container">
+        <div class="fleet-heading reveal">
+          <div>
+            <p class="kicker">VANGUARD FLEET</p>
+            <h2>Three ships. Three very different answers to the same problem.</h2>
+          </div>
           <p>
-            The supplied OpenCTM ship files are kept completely unchanged and available here as part of the page’s asset archive.
+            Our current organisation fleet covers heavy combat, high-capacity freight and independent mining.
+            More hulls will appear here as the Vanguard grows.
           </p>
-          <img class="fleet-mark" src="./assets/star-citizen/MadeByTheCommunity_White.png" alt="Made by the community">
         </div>
 
-        <div class="fleet-list">
-          <article class="ship-record reveal">
-            <span class="ship-number">01</span>
-            <div>
-              <p>DRAKE INTERPLANETARY</p>
-              <h3>Cutlass Black</h3>
-              <span>OPENCTM // 959 KB</span>
-            </div>
-            <a href="./assets/star-citizen/Drake Cutlass Black.ctm" download>Download model <b>↓</b></a>
-          </article>
+        <div class="fleet-summary reveal" aria-label="Fleet summary">
+          <div><strong>03</strong><span>Organisation ships</span></div>
+          <div><strong>02</strong><span>Manufacturers</span></div>
+          <div><strong>03</strong><span>Operational roles</span></div>
+        </div>
 
-          <article class="ship-record reveal">
-            <span class="ship-number">02</span>
-            <div>
-              <p>ANVIL AEROSPACE</p>
-              <h3>F7C-M Super Hornet</h3>
-              <span>OPENCTM // 3.1 MB</span>
+        <div class="fleet-showcase">
+          <div class="model-column reveal">
+            <div class="model-stage" data-ship-viewer
+                 data-model-url="./assets/star-citizen/Anvil F7C-M Super Hornet.ctm"
+                 aria-label="Slowly rotating three-dimensional model of an Anvil F7C-M Super Hornet">
+              <div class="model-grid" aria-hidden="true"></div>
+              <div class="model-ring model-ring-one" aria-hidden="true"></div>
+              <div class="model-ring model-ring-two" aria-hidden="true"></div>
+              <div class="model-status" data-model-status>
+                <span class="model-loader" aria-hidden="true"></span>
+                Loading Super Hornet…
+              </div>
+              <canvas data-model-canvas></canvas>
+              <div class="model-caption">
+                <span>ARCHIVE VISUAL // SUPPORT CRAFT</span>
+                <strong>ANVIL F7C-M SUPER HORNET</strong>
+                <small>Drag to inspect · Auto-rotation enabled</small>
+              </div>
             </div>
-            <a href="./assets/star-citizen/Anvil F7C-M Super Hornet.ctm" download>Download model <b>↓</b></a>
-          </article>
+          </div>
+
+          <div class="fleet-records">
+            <article class="fleet-record reveal">
+              <div class="fleet-record-index">01</div>
+              <div class="fleet-record-main">
+                <p>ROBERTS SPACE INDUSTRIES</p>
+                <h3>Perseus</h3>
+                <span>Heavy gunship</span>
+              </div>
+              <dl>
+                <div><dt>Crew</dt><dd>Up to 6</dd></div>
+                <div><dt>Cargo</dt><dd>96 SCU</dd></div>
+                <div><dt>Fleet role</dt><dd>Heavy combat</dd></div>
+              </dl>
+            </article>
+
+            <article class="fleet-record reveal">
+              <div class="fleet-record-index">02</div>
+              <div class="fleet-record-main">
+                <p>ROBERTS SPACE INDUSTRIES</p>
+                <h3>Hermes</h3>
+                <span>Medium freight</span>
+              </div>
+              <dl>
+                <div><dt>Operation</dt><dd>Small crew</dd></div>
+                <div><dt>Cargo</dt><dd>288 SCU</dd></div>
+                <div><dt>Fleet role</dt><dd>Logistics</dd></div>
+              </dl>
+            </article>
+
+            <article class="fleet-record reveal">
+              <div class="fleet-record-index">03</div>
+              <div class="fleet-record-main">
+                <p>MUSASHI INDUSTRIAL &amp; STARFLIGHT CONCERN</p>
+                <h3>Prospector</h3>
+                <span>Solo mining vessel</span>
+              </div>
+              <dl>
+                <div><dt>Crew</dt><dd>1</dd></div>
+                <div><dt>Ore capacity</dt><dd>32 SCU</dd></div>
+                <div><dt>Fleet role</dt><dd>Industry</dd></div>
+              </dl>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -226,14 +290,6 @@
   </main>
 
   <footer class="sc-footer">
-    <div class="sc-container footer-top">
-      <div class="footer-brand">
-        <img src="./assets/favicon.png" alt="" width="44" height="44">
-        <div><strong>Minervan Vanguard</strong><span>Star Citizen division</span></div>
-      </div>
-      <img class="community-badge" src="./assets/star-citizen/MadeByTheCommunity_Black.png" alt="Made by the community">
-    </div>
-
     <div class="sc-container legal-panel">
       <p>This site is not endorsed by or affiliated with the Cloud Imperium or Roberts Space Industries group of companies. All game content and materials are copyright Cloud Imperium Rights LLC and Cloud Imperium Rights Ltd.. Star Citizen®, Squadron 42®, Roberts Space Industries®, and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC. All rights reserved.</p>
     </div>
