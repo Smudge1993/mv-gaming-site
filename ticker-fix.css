@@ -1,0 +1,61 @@
+/*
+  MINERVAN VANGUARD — SEAMLESS FULL-WIDTH TICKER FIX
+
+  Each repeated group is at least one viewport wide. On narrower screens,
+  the natural width of the labels may be greater than the viewport; both
+  repeated groups remain identical, so translating by 50% loops cleanly.
+*/
+
+.signal-strip {
+  width: 100%;
+  max-width: none;
+  overflow: hidden;
+}
+
+.signal-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  min-width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+  animation: mv-ticker-loop 34s linear infinite;
+}
+
+.signal-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  width: max-content;
+  min-width: 100vw;
+  white-space: nowrap;
+}
+
+.signal-group span,
+.signal-group i {
+  flex: 0 0 auto;
+}
+
+@keyframes mv-ticker-loop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 720px) {
+  .signal-track {
+    animation-duration: 27s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-track {
+    animation: none;
+  }
+}
