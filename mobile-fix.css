@@ -1,0 +1,142 @@
+/*
+  MINERVAN VANGUARD — MOBILE HOMEPAGE FIX
+
+  This file is deliberately limited to screens 720px wide and below.
+  It does not alter the desktop or tablet layout.
+*/
+
+@media (max-width: 720px) {
+  /*
+    The original mobile rules made the crest 125vw wide and placed it over
+    the page content. Keep it as a faint background watermark instead.
+  */
+  .hero {
+    min-height: 820px;
+    padding-top: calc(var(--header-height) + 4.25rem);
+    padding-bottom: 3.5rem;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: block;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    margin-bottom: 1.2rem;
+    font-size: clamp(3rem, 14vw, 4.15rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+  }
+
+  .hero h1 span {
+    font-size: 0.96em;
+  }
+
+  .hero-lead {
+    max-width: 36rem;
+    margin-bottom: 1.35rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .hero-tags {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.48rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .hero-tags span {
+    min-width: 0;
+    padding: 0.47rem 0.35rem;
+    text-align: center;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-stats {
+    position: relative;
+    z-index: 5;
+    gap: 0.55rem;
+    margin-top: 2rem;
+  }
+
+  .hero-stats div {
+    min-width: 0;
+  }
+
+  .hero-stats dd {
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-emblem {
+    position: absolute;
+    right: -5.5rem;
+    bottom: -1.5rem;
+    width: min(96vw, 440px);
+    margin: 0;
+    opacity: 0.075;
+    pointer-events: none;
+  }
+
+  .hero-emblem img {
+    width: 100%;
+  }
+
+  .hero-emblem::before,
+  .hero-emblem::after,
+  .emblem-orbit {
+    opacity: 0.35;
+  }
+
+  .hero::before {
+    top: auto;
+    right: -18rem;
+    bottom: -20rem;
+    width: 38rem;
+    height: 38rem;
+  }
+
+  .intro {
+    padding-top: 4.5rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero {
+    min-height: 850px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.85rem, 13.6vw, 3.35rem);
+  }
+
+  .hero-tags span {
+    font-size: 0.55rem;
+    letter-spacing: 0.07em;
+  }
+
+  .hero-stats dt {
+    font-size: 1.4rem;
+  }
+
+  .hero-stats dd {
+    font-size: 0.52rem;
+  }
+}
