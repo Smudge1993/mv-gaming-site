@@ -9,6 +9,27 @@
   const close=()=>{toggle?.setAttribute("aria-expanded","false");nav?.classList.remove("is-open");dropdown?.classList.remove("is-open");dropdownToggle?.setAttribute("aria-expanded","false")};
   toggle?.addEventListener("click",()=>{const open=toggle.getAttribute("aria-expanded")==="true";toggle.setAttribute("aria-expanded",String(!open));nav?.classList.toggle("is-open",!open)});
   dropdownToggle?.addEventListener("click",()=>{const open=dropdownToggle.getAttribute("aria-expanded")==="true";dropdownToggle.setAttribute("aria-expanded",String(!open));dropdown?.classList.toggle("is-open",!open)});
+
+  // Keep the desktop Games menu open while the pointer moves into it.
+  let dropdownCloseTimer = null;
+
+  const openDropdownOnHover = () => {
+    if (window.innerWidth <= 980 || !dropdown) return;
+    window.clearTimeout(dropdownCloseTimer);
+    dropdown.classList.add("is-hover-open");
+  };
+
+  const closeDropdownAfterDelay = () => {
+    if (window.innerWidth <= 980 || !dropdown) return;
+    window.clearTimeout(dropdownCloseTimer);
+    dropdownCloseTimer = window.setTimeout(() => {
+      dropdown.classList.remove("is-hover-open");
+    }, 360);
+  };
+
+  dropdown?.addEventListener("pointerenter", openDropdownOnHover);
+  dropdown?.addEventListener("pointerleave", closeDropdownAfterDelay);
+
   nav?.querySelectorAll("a").forEach((link)=>link.addEventListener("click",close));
   const reveals=document.querySelectorAll(".reveal"); if(!("IntersectionObserver" in window)) reveals.forEach(el=>el.classList.add("is-visible")); else {const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target)}}),{threshold:.1});reveals.forEach(el=>observer.observe(el));}
 })();

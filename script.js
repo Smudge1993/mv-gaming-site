@@ -29,6 +29,26 @@
   dropdownToggle?.addEventListener("click", () => { const open = dropdownToggle.getAttribute("aria-expanded") === "true"; dropdownToggle.setAttribute("aria-expanded", String(!open)); dropdown?.classList.toggle("is-open", !open); });
   nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
   document.addEventListener("click", (event) => { if (dropdown && !dropdown.contains(event.target)) { dropdown.classList.remove("is-open"); dropdownToggle?.setAttribute("aria-expanded", "false"); } });
+  // Keep the desktop Games menu open while the pointer moves into it.
+  let dropdownCloseTimer = null;
+
+  const openDropdownOnHover = () => {
+    if (window.innerWidth <= 980 || !dropdown) return;
+    window.clearTimeout(dropdownCloseTimer);
+    dropdown.classList.add("is-hover-open");
+  };
+
+  const closeDropdownAfterDelay = () => {
+    if (window.innerWidth <= 980 || !dropdown) return;
+    window.clearTimeout(dropdownCloseTimer);
+    dropdownCloseTimer = window.setTimeout(() => {
+      dropdown.classList.remove("is-hover-open");
+    }, 360);
+  };
+
+  dropdown?.addEventListener("pointerenter", openDropdownOnHover);
+  dropdown?.addEventListener("pointerleave", closeDropdownAfterDelay);
+
   window.addEventListener("resize", () => { if (window.innerWidth > 980) closeMenu(); });
 
   const updateDiscordCount = async () => {
