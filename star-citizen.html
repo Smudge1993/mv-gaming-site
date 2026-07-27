@@ -11,15 +11,8 @@
   <link rel="stylesheet" href="./star-citizen.css">
 
   <script src="./site-config.js" defer></script>
-
-  <!-- The supplied Super Hornet is an OpenCTM model. These pinned legacy
-       libraries are used only to display that unchanged file in-browser. -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/107/three.min.js" defer></script>
-  <script src="https://unpkg.com/three@0.107.0/examples/js/loaders/ctm/lzma.js" defer></script>
-  <script src="https://unpkg.com/three@0.107.0/examples/js/loaders/ctm/CTM.js" defer></script>
-  <script src="https://unpkg.com/three@0.107.0/examples/js/loaders/ctm/CTMLoader.js" defer></script>
-
-  <script src="./star-citizen.js" defer></script>
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"}}</script>
+  <script type="module" src="./star-citizen.js?v=7"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -55,7 +48,7 @@
         <a href="#operations">Operations</a>
         <a href="#fleet">Fleet</a>
         <a href="#join">Join</a>
-        <a class="nav-home" href="./index.html">MV Gaming ↗</a>
+        <a href="./about.html">About MV</a><a href="./torn.html">Torn</a><a class="nav-home" href="./index.html">MV Home ↗</a>
       </nav>
     </div>
   </header>
@@ -195,14 +188,14 @@
         <div class="fleet-showcase">
           <div class="model-column reveal">
             <div class="model-stage" data-ship-viewer
-                 data-model-url="./assets/star-citizen/Anvil F7C-M Super Hornet.ctm"
+                 data-model-url="./assets/star-citizen/Anvil F7C-M Super Hornet.glb"
                  aria-label="Slowly rotating three-dimensional model of an Anvil F7C-M Super Hornet">
               <div class="model-grid" aria-hidden="true"></div>
               <div class="model-ring model-ring-one" aria-hidden="true"></div>
               <div class="model-ring model-ring-two" aria-hidden="true"></div>
               <div class="model-status" data-model-status>
                 <span class="model-loader" aria-hidden="true"></span>
-                Loading Super Hornet…
+                Loading Super Hornet GLB…
               </div>
               <canvas data-model-canvas></canvas>
               <div class="model-caption">

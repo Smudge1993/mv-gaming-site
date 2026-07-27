@@ -1,342 +1,125 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#06090e">
-  <meta name="description" content="Minervan Vanguard — an independent gaming community, online guild and game-development project.">
+  <meta name="description" content="Minervan Vanguard — an international gaming community, MMO guild and home of Starfarers.">
   <title>Minervan Vanguard | One Vanguard. Many Worlds.</title>
-
   <link rel="icon" type="image/png" href="./assets/favicon.png">
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./mobile-fix.css?v=2">
-
-  <script src="./site-config.js" defer></script>
-  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=7"><link rel="stylesheet" href="./mobile-fix.css?v=3">
+  <script src="./site-config.js" defer></script><script src="./script.js?v=7" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
-
   <header class="site-header" data-header>
     <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Minervan Vanguard home">
+      <a class="brand" href="./index.html" aria-label="Minervan Vanguard home">
         <img src="./assets/favicon.png" alt="" width="40" height="40">
-        <span>
-          <strong>MINERVAN</strong>
-          <small>VANGUARD</small>
-        </span>
+        <span><strong>MINERVAN</strong><small>VANGUARD</small></span>
       </a>
-
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
-        <span class="sr-only">Open navigation</span>
-        <span></span><span></span><span></span>
+        <span class="sr-only">Open navigation</span><span></span><span></span><span></span>
       </button>
-
       <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-nav>
-        <a href="#game">Our Game</a>
-        <a href="#star-citizen">Star Citizen</a>
-        <a href="#torn">Torn</a>
+        <a href="./index.html" aria-current="page">Home</a>
+        <a href="./about.html">About</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" data-dropdown-toggle>
+            Games <span aria-hidden="true">⌄</span>
+          </button>
+          <div class="nav-dropdown-menu" data-dropdown-menu>
+            <a href="./starfarers.html"><strong>Starfarers</strong><span>Our game in development</span></a><a href="./star-citizen.html"><strong>Star Citizen</strong><span>Organisation hub</span></a><a href="./torn.html"><strong>Torn</strong><span>Faction profile</span></a>
+          </div>
+        </div>
         <a href="#community">Community</a>
         <a href="#updates">Updates</a>
         <a class="button button-small button-outline js-discord-link" href="#community">Join Discord</a>
       </nav>
     </div>
   </header>
-
-  <div class="signal-strip" aria-hidden="true">
-    <div class="signal-track">
-      <span>GAME DEVELOPMENT</span><i>✦</i>
-      <span>STAR CITIZEN OPERATIONS</span><i>✦</i>
-      <span>TORN FACTION LIFE</span><i>✦</i>
-      <span>DISCORD COMMUNITY</span><i>✦</i>
-      <span>GAME DEVELOPMENT</span><i>✦</i>
-      <span>STAR CITIZEN OPERATIONS</span><i>✦</i>
-      <span>TORN FACTION LIFE</span><i>✦</i>
-      <span>DISCORD COMMUNITY</span><i>✦</i>
-    </div>
-  </div>
-
+  <div class="signal-strip" aria-hidden="true"><div class="signal-track"><div class="signal-group">
+        <span>STARFARERS DEVELOPMENT</span><i>✦</i>
+        <span>STAR CITIZEN OPERATIONS</span><i>✦</i>
+        <span>TORN FACTION LIFE</span><i>✦</i>
+        <span>DISCORD COMMUNITY</span><i>✦</i>
+      </div><div class="signal-group">
+        <span>STARFARERS DEVELOPMENT</span><i>✦</i>
+        <span>STAR CITIZEN OPERATIONS</span><i>✦</i>
+        <span>TORN FACTION LIFE</span><i>✦</i>
+        <span>DISCORD COMMUNITY</span><i>✦</i>
+      </div></div></div>
   <main id="main-content">
     <section class="hero" id="top">
       <div class="hero-grid container">
         <div class="hero-copy reveal">
           <p class="eyebrow">Broadcasting from somewhere in the void</p>
           <h1>One Vanguard.<br><span>Many Worlds.</span></h1>
-          <p class="hero-lead">
-            We build games, organise Star Citizen operations, scheme in Torn,
-            and keep one Discord alive through sheer force of habit.
-          </p>
-
-          <div class="hero-tags" aria-label="Community areas">
-            <span>Game Dev</span>
-            <span>Star Citizen</span>
-            <span>Torn</span>
-            <span>Discord</span>
-          </div>
-
-          <div class="hero-actions">
-            <a class="button button-primary js-discord-link" href="#community">Join the Discord</a>
-            <a class="button button-ghost" href="#divisions">Explore the Vanguard</a>
-          </div>
-
-          <dl class="hero-stats" aria-label="Minervan Vanguard at a glance">
-            <div>
-              <dt>03</dt>
-              <dd>Active fronts</dd>
-            </div>
-            <div>
-              <dt>01</dt>
-              <dd>Shared community</dd>
-            </div>
-            <div>
-              <dt>∞</dt>
-              <dd>Room to grow</dd>
-            </div>
-          </dl>
+          <p class="hero-lead">We build games, organise Star Citizen operations, scheme in Torn, and keep one Discord alive through sheer force of habit.</p>
+          <div class="hero-tags" aria-label="Community areas"><span>Game Dev</span><span>Star Citizen</span><span>Torn</span><span>Discord</span></div>
+          <div class="hero-actions"><a class="button button-primary js-discord-link" href="#community">Join the Discord</a><a class="button button-ghost" href="#divisions">Explore the Vanguard</a></div>
+          <dl class="hero-stats" aria-label="Minervan Vanguard at a glance"><div><dt>03</dt><dd>Active fronts</dd></div><div><dt>01</dt><dd>Shared community</dd></div><div><dt>∞</dt><dd>Room to grow</dd></div></dl>
         </div>
-
         <div class="hero-emblem reveal" aria-label="Minervan Vanguard crest">
           <div class="emblem-orbit" aria-hidden="true"></div>
-          <div class="signal-card signal-card-top" aria-hidden="true">
-            <span>STATUS</span>
-            <strong>ONLINE</strong>
-          </div>
-          <div class="signal-card signal-card-bottom" aria-hidden="true">
-            <span>VANGUARD NET</span>
-            <strong>MV-01</strong>
-          </div>
+          <div class="signal-card signal-card-top"><span>DISCORD</span><strong data-discord-count>CONNECTING</strong></div>
+          <div class="signal-card signal-card-bottom" aria-hidden="true"><span>VANGUARD NET</span><strong>MV-01</strong></div>
           <img src="./assets/minervan-vanguard-white.png" alt="Minervan Vanguard crest">
         </div>
       </div>
-
-      <div class="hero-scroll" aria-hidden="true">
-        <span>Scroll to deploy</span>
-        <i></i>
-      </div>
+      <div class="hero-scroll" aria-hidden="true"><span>Scroll to deploy</span><i></i></div>
     </section>
 
     <section class="section intro" id="divisions">
       <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Pick your poison</p>
-          <h2>Different games. Same collection of reprobates.</h2>
-          <p>
-            This is the shared home for everything under the Minervan Vanguard banner:
-            the serious projects, the questionable plans and the people making both happen.
-          </p>
-        </div>
-
+        <div class="section-heading reveal"><p class="eyebrow">Pick your poison</p><h2>Different games. Same collection of reprobates.</h2><p>This is the shared home for everything beneath the Minervan Vanguard banner: the serious projects, the questionable plans and the people making both happen.</p></div>
         <div class="division-grid">
-          <article class="division-card division-card-game reveal" id="game">
-            <div class="card-code">DEV / 01</div>
-            <div class="card-mark">MV</div>
-            <div class="card-content">
-              <p class="card-label">Currently cooking</p>
-              <h3 class="js-game-title">Our Game</h3>
-              <p class="js-game-description">
-                A game is slowly emerging from a dangerous mixture of ambition,
-                caffeine and an ever-expanding list of “small” features.
-              </p>
-              <a class="text-link" href="#updates">View development updates <span>→</span></a>
-            </div>
-          </article>
-
-          <article class="division-card reveal" id="star-citizen">
-            <div class="card-code">ORG / 02</div>
-            <div class="card-mark">SC</div>
-            <div class="card-content">
-              <p class="card-label">Star Citizen</p>
-              <h3>Ships, ops and expensive mistakes</h3>
-              <p>
-                Co-op operations, exploration, logistics and the occasional
-                extremely well-documented catastrophe.
-              </p>
-              <a class="text-link" href="./star-citizen.html">
-                Enter the Star Citizen hub <span>→</span>
-              </a>
-            </div>
-          </article>
-
-          <article class="division-card reveal" id="torn">
-            <div class="card-code">FACTION / 03</div>
-            <div class="card-mark">T</div>
-            <div class="card-content">
-              <p class="card-label">Torn</p>
-              <h3>Long games and longer grudges</h3>
-              <p>
-                Our Torn presence for long-term progression, organised chaos
-                and people who can remember what they were planning six months ago.
-              </p>
-              <a class="text-link js-torn-link" href="#community">
-                View our Torn presence <span>→</span>
-              </a>
-            </div>
-          </article>
+          <article class="division-card division-card-game reveal" id="game"><div class="card-code">DEV / 01</div><div class="card-mark">SF</div><div class="card-content"><p class="card-label">Currently cooking</p><h3>Starfarers</h3><p>A mobile and future browser strategy game built around bases, real-time battles and guilds.</p><a class="text-link" href="./starfarers.html">View development updates <span>→</span></a></div></article>
+          <article class="division-card reveal" id="star-citizen"><div class="card-code">ORG / 02</div><div class="card-mark">SC</div><div class="card-content"><p class="card-label">Star Citizen</p><h3>Ships, ops and expensive mistakes</h3><p>Co-op operations, exploration, logistics and the occasional extremely well-documented catastrophe.</p><a class="text-link" href="./star-citizen.html">Enter the Star Citizen hub <span>→</span></a></div></article>
+          <article class="division-card reveal" id="torn"><div class="card-code">FACTION / 03</div><div class="card-mark">T</div><div class="card-content"><p class="card-label">Torn</p><h3>Long games and longer grudges</h3><p>Regular Ranked Wars, organised crime and a community that understands the long game.</p><a class="text-link" href="./torn.html">View our Torn presence <span>→</span></a></div></article>
         </div>
       </div>
     </section>
 
     <section class="section community-section" id="community">
       <div class="container community-grid">
-        <div class="community-logo reveal">
-          <div class="colour-logo-panel">
-            <img src="./assets/minervan-vanguard-colour.png" alt="Coloured Minervan Vanguard crest">
-          </div>
-        </div>
-
-        <div class="community-copy reveal">
-          <p class="eyebrow">Where everyone actually lives</p>
-          <h2>The Discord is the actual capital city.</h2>
-          <p>
-            Development notes, operation planning, screenshots, faction chatter,
-            terrible ideas and the occasional useful announcement all end up here.
-            You do not need to play everything to belong.
-          </p>
-
-          <div class="community-points">
-            <div>
-              <strong>Enough structure</strong>
-              <span>Dedicated spaces for each game, without turning the server into filing cabinets.</span>
-            </div>
-            <div>
-              <strong>One banner</strong>
-              <span>A single community instead of twelve abandoned servers with six members each.</span>
-            </div>
-            <div>
-              <strong>Room for the next obsession</strong>
-              <span>New games and side projects can slot in without detonating the entire site.</span>
-            </div>
-          </div>
-
-          <a class="button button-primary js-discord-link" href="#">Enter the Discord</a>
-          <p class="config-note" data-config-note>
-            Add your real invite link in <code>site-config.js</code> to activate this button.
-          </p>
+        <div class="community-logo reveal"><div class="colour-logo-panel"><img src="./assets/minervan-vanguard-colour.png" alt="Coloured Minervan Vanguard crest"></div></div>
+        <div class="community-copy reveal"><p class="eyebrow">Where everyone actually lives</p><h2>The Discord is the actual capital city.</h2><p>Development notes, operation planning, screenshots, faction chatter, terrible ideas and the occasional useful announcement all end up here. You do not need to play everything to belong.</p>
+          <div class="discord-live-row" aria-live="polite"><span class="pulse-dot"></span><strong data-discord-count>CONNECTING</strong><small>members reported online by Discord</small></div>
+          <div class="community-points"><div><strong>Enough structure</strong><span>Dedicated spaces for each game, without turning the server into filing cabinets.</span></div><div><strong>One banner</strong><span>A single community instead of twelve abandoned servers with six members each.</span></div><div><strong>Room for the next obsession</strong><span>New games and side projects can slot in without detonating the entire site.</span></div></div>
+          <a class="button button-primary js-discord-link" href="#">Enter the Discord</a><p class="config-note" data-config-note>Add your real invite link in <code>site-config.js</code> to activate this button.</p>
         </div>
       </div>
     </section>
 
-    <section class="now-playing">
-      <div class="container now-playing-grid reveal">
-        <div class="now-playing-label">
-          <span class="pulse-dot"></span>
-          CURRENTLY ON THE NETWORK
-        </div>
-        <div class="now-playing-items">
-          <span>Building the game</span>
-          <span>Planning the next op</span>
-          <span>Checking Torn timers</span>
-          <span>Ignoring sensible bedtimes</span>
-        </div>
-      </div>
-    </section>
+    <section class="now-playing"><div class="container now-playing-grid reveal"><div class="now-playing-label"><span class="pulse-dot"></span>CURRENTLY ON THE NETWORK</div><div class="now-playing-items"><span>Building Starfarers</span><span>Planning the next op</span><span>Checking Torn timers</span><span>Ignoring sensible bedtimes</span></div></div></section>
 
-    <section class="section principles">
-      <div class="container">
-        <div class="section-heading compact reveal">
-          <p class="eyebrow">The vibe check</p>
-          <h2>Competent enough to pull it off. Casual enough to laugh when we do not.</h2>
-        </div>
-
-        <div class="principle-grid">
-          <article class="reveal">
-            <span>01</span>
-            <h3>People before pixels</h3>
-            <p>The people matter more than the rank, the loot or the collection of irresponsibly expensive digital spacecraft.</p>
-          </article>
-          <article class="reveal">
-            <span>02</span>
-            <h3>Useful, not unbearable</h3>
-            <p>We like teamwork and reliability, but nobody is saluting before joining voice chat.</p>
-          </article>
-          <article class="reveal">
-            <span>03</span>
-            <h3>Built to survive the meta</h3>
-            <p>Games change, servers die and metas rot. The community should outlast all three.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+    <section class="section principles"><div class="container"><div class="section-heading compact reveal"><p class="eyebrow">The vibe check</p><h2>Competent enough to pull it off. Casual enough to laugh when we do not.</h2></div><div class="principle-grid"><article class="reveal"><span>01</span><h3>People before pixels</h3><p>The people matter more than the rank, the loot or the collection of irresponsibly expensive digital spacecraft.</p></article><article class="reveal"><span>02</span><h3>Useful, not unbearable</h3><p>We like teamwork and reliability, but nobody is saluting before joining voice chat.</p></article><article class="reveal"><span>03</span><h3>Built to survive the meta</h3><p>Games change, servers die and metas rot. The community should outlast all three.</p></article></div></div></section>
 
     <section class="section updates-section" id="updates">
       <div class="container">
-        <div class="section-heading split reveal">
-          <div>
-            <p class="eyebrow">Fresh from the comms</p>
-            <h2>What we have been up to lately</h2>
+        <div class="section-heading split reveal"><div><p class="eyebrow">Network feed</p><h2>Latest from across the Vanguard</h2></div><p>Select a transmission to open the brief. Newest reports appear first.</p></div>
+        <div class="news-console reveal">
+          <div class="news-list" role="tablist" aria-label="Latest news">
+            <button class="news-item is-active" type="button" role="tab" aria-selected="true" aria-controls="news-mobile" data-news-target="news-mobile"><span><b>Website</b><time datetime="2026-07-27">27 Jul 2026</time></span><strong>Mobile Website Developing!</strong><small>UI work continues across phone screens.</small></button>
+            <button class="news-item" type="button" role="tab" aria-selected="false" aria-controls="news-website" data-news-target="news-website"><span><b>Community</b><time datetime="2026-07-26">26 Jul 2026</time></span><strong>Website Development</strong><small>The new MV home is online.</small></button>
+            <button class="news-item" type="button" role="tab" aria-selected="false" aria-controls="news-starfarers" data-news-target="news-starfarers"><span><b>Starfarers</b><time datetime="2026-07-25">25 Jul 2026</time></span><strong>Starfarers Enters V1</strong><small>The first framework is taking shape.</small></button>
           </div>
-          <p>
-            Devlogs, after-action reports, faction milestones, screenshots
-            and whatever else deserves to escape the Discord scrollback.
-          </p>
-        </div>
-
-        <div class="updates-grid">
-          <article class="update-card reveal">
-            <div class="update-meta">
-              <span>Development</span>
-              <time datetime="2026-07-26">26 July 2026</time>
-            </div>
-            <h3>The new Minervan Vanguard website begins</h3>
-            <p>Our central home is being rebuilt to unite game development and the wider guild community.</p>
-            <a href="#game">Read update <span>→</span></a>
-          </article>
-
-          <article class="update-card reveal">
-            <div class="update-meta">
-              <span>Star Citizen</span>
-              <time datetime="2026-07-26">Coming soon</time>
-            </div>
-            <h3>Organisation profile and operation gallery</h3>
-            <p>Add your role, activity focus, recruitment information and the best screenshots from the ’verse.</p>
-            <a href="./star-citizen.html">Enter the Star Citizen hub <span>→</span></a>
-          </article>
-
-          <article class="update-card reveal">
-            <div class="update-meta">
-              <span>Torn</span>
-              <time datetime="2026-07-26">Coming soon</time>
-            </div>
-            <h3>Faction profile and member information</h3>
-            <p>Use this space for faction milestones, recruitment status, wars and community notices.</p>
-            <a class="js-torn-link" href="#torn">View Torn presence <span>→</span></a>
-          </article>
+          <div class="news-stage">
+            <article class="news-detail is-active" id="news-mobile" role="tabpanel"><p class="news-category">WEBSITE // MOBILE</p><time datetime="2026-07-27">27 JULY 2026</time><h3>Mobile Website Developing!</h3><p>We’re now working on the mobile version of the website. If the UI still looks a bit strange, please refresh your cache to get the latest version of the site.</p><a href="#top">View the current homepage <span>→</span></a></article>
+            <article class="news-detail" id="news-website" role="tabpanel" hidden><p class="news-category">COMMUNITY // WEBSITE</p><time datetime="2026-07-26">26 JULY 2026</time><h3>Website Development</h3><p>Our new website is up and running. Please be patient while we troubleshoot issues and continue developing it to meet our growing needs.</p><a href="./about.html">Read about the Vanguard <span>→</span></a></article>
+            <article class="news-detail" id="news-starfarers" role="tabpanel" hidden><p class="news-category">DEVELOPMENT // V1</p><time datetime="2026-07-25">25 JULY 2026</time><h3>Starfarers Enters V1</h3><p>Starfarers entered its first phase of coding today, with Unity being powered up for the first time and the initial code laid down. The framework is starting to take shape, and we hope to show more on the Starfarers site soon.</p><a href="./starfarers.html">Visit Starfarers <span>→</span></a></article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="cta-section">
-      <div class="container cta-inner reveal">
-        <div>
-          <p class="eyebrow">Doors are open</p>
-          <h2>Come lurk. Stay for the nonsense.</h2>
-        </div>
-        <a class="button button-light js-discord-link" href="#community">Join Minervan Vanguard</a>
-      </div>
-    </section>
+    <section class="cta-section"><div class="container cta-inner reveal"><div><p class="eyebrow">Doors are open</p><h2>Come lurk. Stay for the nonsense.</h2></div><a class="button button-light js-discord-link" href="#community">Join Minervan Vanguard</a></div></section>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="./assets/favicon.png" alt="" width="48" height="48">
-        <div>
-          <strong>Minervan Vanguard</strong>
-          <span>One Vanguard. Many Worlds.</span>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <a class="js-discord-link" href="#community">Discord</a>
-        <a href="./star-citizen.html">Star Citizen</a>
-        <a class="js-torn-link" href="#torn">Torn</a>
-      </div>
-
-      <p class="footer-legal">
-        © <span data-current-year></span> Minervan Vanguard.
-        Not affiliated with Cloud Imperium Games or Torn.
-      </p>
+      <div class="footer-brand"><img src="./assets/favicon.png" alt="" width="48" height="48"><div><strong>Minervan Vanguard</strong><span>One Vanguard. Many Worlds.</span></div></div>
+      <div class="footer-links"><a href="./about.html">About</a><a href="./starfarers.html">Starfarers</a><a href="./star-citizen.html">Star Citizen</a><a href="./torn.html">Torn</a><a class="js-discord-link" href="#">Discord</a></div>
+      <p class="footer-legal">© <span data-current-year></span> Minervan Vanguard. Independent community; game names and trademarks belong to their respective owners.</p>
     </div>
   </footer>
-</body>
-</html>
+</body></html>
