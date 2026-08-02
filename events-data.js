@@ -28,5 +28,15 @@
 */
 
 window.MV_EVENTS = [
-  // Add live events here.
+  {
+    title: "Friday Operations Night",
+    game: "Star Citizen",
+    date: "2026-08-01",
+    time: "20:00",
+    timezone: "BST",
+    summary: "Come fight it out in torn as we try to hold onto our gold ranking!",
+    url: "/torn.html",
+    published: true
+  }
+];
 ];
