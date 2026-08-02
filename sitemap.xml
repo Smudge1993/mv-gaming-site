@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mvgaming.org/</loc>
-  </url>
-  <url>
-    <loc>https://mvgaming.org/about.html</loc>
-  </url>
-  <url>
-    <loc>https://mvgaming.org/starfarers.html</loc>
-  </url>
-  <url>
-    <loc>https://mvgaming.org/star-citizen.html</loc>
-  </url>
-  <url>
-    <loc>https://mvgaming.org/torn.html</loc>
-  </url>
+  <url><loc>https://mvgaming.org/</loc><lastmod>2026-08-02</lastmod></url>
+  <url><loc>https://mvgaming.org/about.html</loc><lastmod>2026-08-02</lastmod></url>
+  <url><loc>https://mvgaming.org/starfarers.html</loc><lastmod>2026-08-02</lastmod></url>
+  <url><loc>https://mvgaming.org/star-citizen.html</loc><lastmod>2026-08-02</lastmod></url>
+  <url><loc>https://mvgaming.org/torn.html</loc><lastmod>2026-08-02</lastmod></url>
+  <url><loc>https://mvgaming.org/privacy.html</loc><lastmod>2026-08-02</lastmod></url>
 </urlset>
