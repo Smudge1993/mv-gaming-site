@@ -43,5 +43,26 @@
 */
 
 window.MV_EVENTS = [
-  // Add live events here.
+  {
+    title: "Torn Ranked war",
+    game: "Torn",
+    date: "2026-08-01",
+    endDate: "2026-08-04",
+    time: "20:00",
+    timezone: "BST",
+    summary: "Come fight alongside us as we battle to keep our gold rank!",
+    url: "/torn.html",
+    published: true
+    
+    title: "Star Citizen Foundation festival",
+    game: "Star Citizen",
+    date: "2026-07-29",
+    endDate: "2026-08-10",
+    time: "20:00",
+    timezone: "BST",
+    summary: "Free fly event in Star citizen, come join us and hop on a ship as we take on the Universe",
+    url: "/star-citizen.html",
+    published: true
+  }
+];
 ];
