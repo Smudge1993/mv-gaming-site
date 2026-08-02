@@ -53,7 +53,8 @@ window.MV_EVENTS = [
     summary: "Come fight alongside us as we battle to keep our gold rank!",
     url: "/torn.html",
     published: true
-    
+  },
+  {
     title: "Star Citizen Foundation festival",
     game: "Star Citizen",
     date: "2026-07-29",
@@ -65,4 +66,4 @@ window.MV_EVENTS = [
     published: true
   }
 ];
-];
+
