@@ -1,0 +1,91 @@
+/*
+  MINERVAN VANGUARD — CUMULATIVE LAYOUT SHIFT HARDENING
+
+  Loaded after the visual stylesheets. These rules reserve space for content
+  that loads or changes after the first HTML layout without changing the
+  site's desktop or mobile design.
+*/
+
+/* Prevent the viewport width changing when the vertical scrollbar appears. */
+html {
+  scrollbar-gutter: stable;
+}
+
+/*
+  Width and height HTML attributes now provide the intrinsic aspect ratio.
+  Keeping height automatic lets the existing responsive widths scale safely.
+*/
+img {
+  height: auto;
+}
+
+/* Keep asynchronous Discord text updates inside a stable-width slot. */
+[data-discord-count] {
+  display: inline-block;
+  min-inline-size: 17ch;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.signal-card-top {
+  inline-size: 172px;
+}
+
+.signal-card-top [data-discord-count] {
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.discord-live-row [data-discord-count] {
+  flex: 0 0 17ch;
+}
+
+/*
+  Browser autoplay policy can change "Mute" to "Play music" after load.
+  Reserve the longer label's width so the fixed control does not visibly jump.
+*/
+.sound-dock {
+  min-inline-size: 8.75rem;
+}
+
+[data-sound-label] {
+  display: inline-block;
+  min-inline-size: 8ch;
+  text-align: left;
+}
+
+/* Reserve each image-led hero's intended media box before decoding completes. */
+.starfarers-logo-wrap img {
+  aspect-ratio: 3 / 2;
+}
+
+.sc-wordmark,
+.join-card img {
+  aspect-ratio: 1280 / 175;
+}
+
+.hero-watermark,
+.about-panel > img {
+  aspect-ratio: 588 / 717;
+}
+
+.operation-card img {
+  aspect-ratio: 16 / 9;
+}
+
+/* Fixed model canvas space was already reserved; make that contract explicit. */
+.model-stage {
+  contain: layout paint;
+}
+
+.model-stage canvas {
+  display: block;
+}
+
+/* Footer year is present in the original HTML and remains a fixed-width value. */
+[data-current-year] {
+  display: inline-block;
+  min-inline-size: 4ch;
+  font-variant-numeric: tabular-nums;
+}

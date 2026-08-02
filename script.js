@@ -13,7 +13,6 @@
   configureLinks(".js-discord-link", config.discordInvite);
   configureLinks(".js-star-citizen-link", config.starCitizenOrganisation);
   configureLinks(".js-torn-link", config.tornPage);
-  document.querySelector("[data-config-note]")?.remove();
   document.querySelectorAll("[data-current-year]").forEach((element) => { element.textContent = new Date().getFullYear(); });
 
   const header = document.querySelector("[data-header]");

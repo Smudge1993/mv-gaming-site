@@ -8,7 +8,7 @@
   <title>Star Citizen | Minervan Vanguard</title>
 
   <link rel="icon" type="image/png" href="./assets/favicon.png">
-  <link rel="stylesheet" href="./star-citizen.css">
+  <link rel="stylesheet" href="./star-citizen.css"><link rel="stylesheet" href="./cls-fix.css?v=1">
 
   <script src="./site-config.js" defer></script>
   <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"}}</script>
@@ -31,7 +31,7 @@
   <header class="sc-header" data-header>
     <div class="sc-container header-inner">
       <a class="mv-brand" href="/" aria-label="Return to Minervan Vanguard home">
-        <img src="./assets/favicon.png" alt="" width="42" height="42">
+        <img src="./assets/favicon.png" alt="" width="512" height="512">
         <span>
           <strong>MINERVAN VANGUARD</strong>
           <small>IN THE ’VERSE</small>
@@ -57,11 +57,11 @@
     <section class="sc-hero" id="top">
       <div class="hero-image" aria-hidden="true"></div>
       <div class="hero-vignette" aria-hidden="true"></div>
-      <img class="hero-watermark" src="./assets/star-citizen/STARCITIZEN_WHITE.png" alt="" aria-hidden="true">
+      <img class="hero-watermark" src="./assets/star-citizen/STARCITIZEN_WHITE.png" alt="" aria-hidden="true" width="588" height="717" decoding="async" fetchpriority="low">
 
       <div class="sc-container hero-layout">
         <div class="hero-copy reveal">
-          <img class="sc-wordmark" src="./assets/star-citizen/STARCITIZEN_HORIZONTAL_WHITE.png" alt="Star Citizen">
+          <img class="sc-wordmark" src="./assets/star-citizen/STARCITIZEN_HORIZONTAL_WHITE.png" alt="Star Citizen" width="1280" height="175" decoding="async" fetchpriority="high" loading="eager">
           <p class="kicker">MINERVAN VANGUARD // ORGANISATION HUB</p>
           <h1>Find your place<br><em>in the ’verse.</em></h1>
           <p class="hero-intro">
@@ -113,7 +113,7 @@
         </div>
 
         <div class="about-panel reveal">
-          <img src="./assets/star-citizen/STARCITIZEN_BLACK.png" alt="Star Citizen emblem">
+          <img src="./assets/star-citizen/STARCITIZEN_BLACK.png" alt="Star Citizen emblem" width="588" height="717" decoding="async" loading="lazy" fetchpriority="low">
           <dl>
             <div><dt>Community</dt><dd>Minervan Vanguard</dd></div>
             <div><dt>Focus</dt><dd>Shared operations</dd></div>
@@ -134,7 +134,7 @@
 
         <div class="operation-grid">
           <article class="operation-card reveal">
-            <img src="./assets/star-citizen/SC_12_Wallpaper_3840x2160.jpg" alt="Armoured Star Citizen crew seated aboard a spacecraft">
+            <img src="./assets/star-citizen/SC_12_Wallpaper_3840x2160.jpg" alt="Armoured Star Citizen crew seated aboard a spacecraft" width="3840" height="2160" decoding="async" loading="lazy" fetchpriority="low">
             <div class="operation-overlay"></div>
             <div class="operation-content">
               <span>01 // CREW</span>
@@ -144,7 +144,7 @@
           </article>
 
           <article class="operation-card reveal">
-            <img src="./assets/star-citizen/SC_25_Wallpaper_3840x2160.jpg" alt="A Star Citizen spacecraft flying above a planet during combat">
+            <img src="./assets/star-citizen/SC_25_Wallpaper_3840x2160.jpg" alt="A Star Citizen spacecraft flying above a planet during combat" width="3840" height="2160" decoding="async" loading="lazy" fetchpriority="low">
             <div class="operation-overlay"></div>
             <div class="operation-content">
               <span>02 // FLIGHT</span>
@@ -154,7 +154,7 @@
           </article>
 
           <article class="operation-card reveal">
-            <img src="./assets/star-citizen/SC_26_Wallpaper_3840x2160.jpg" alt="A large Star Citizen spacecraft landed in a mountain valley">
+            <img src="./assets/star-citizen/SC_26_Wallpaper_3840x2160.jpg" alt="A large Star Citizen spacecraft landed in a mountain valley" width="3840" height="2160" decoding="async" loading="lazy" fetchpriority="low">
             <div class="operation-overlay"></div>
             <div class="operation-content">
               <span>03 // EXPEDITION</span>
@@ -267,13 +267,11 @@
             <a class="sc-button sc-button-primary js-discord-link" href="#">Enter the Discord</a>
             <a class="sc-button sc-button-light js-star-citizen-link" href="#">RSI organisation page</a>
           </div>
-          <p class="config-note" data-config-note>
-            Add your real Discord and RSI organisation links in <code>site-config.js</code>.
-          </p>
+          
         </div>
 
         <div class="join-card reveal">
-          <img src="./assets/star-citizen/STARCITIZEN_HORIZONTAL_BLACK.png" alt="Star Citizen">
+          <img src="./assets/star-citizen/STARCITIZEN_HORIZONTAL_BLACK.png" alt="Star Citizen" width="1280" height="175" decoding="async" loading="lazy" fetchpriority="low">
           <p>MINERVAN VANGUARD</p>
           <strong>ONE VANGUARD.<br>MANY WORLDS.</strong>
           <a href="/">Return to MV Gaming <span>↗</span></a>
@@ -288,7 +286,7 @@
     </div>
 
     <div class="sc-container footer-bottom">
-      <span>© <span data-current-year></span> Minervan Vanguard</span>
+      <span>© <span data-current-year>2026</span> Minervan Vanguard</span>
       <a href="/">mvgaming.org</a>
     </div>
   </footer>

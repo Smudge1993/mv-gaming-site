@@ -4,8 +4,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 const config = window.MV_SITE || {};
 const invalid = (value) => !value || value.includes("YOUR-") || value.includes("YOUR_");
 const configureLinks = (selector, url) => document.querySelectorAll(selector).forEach((link) => { if (invalid(url)) { link.classList.add("is-disabled"); link.addEventListener("click", (event) => event.preventDefault()); } else { link.href=url; link.target="_blank"; link.rel="noopener noreferrer"; } });
-configureLinks(".js-discord-link", config.discordInvite); configureLinks(".js-star-citizen-link", config.starCitizenOrganisation);
-document.querySelector("[data-config-note]")?.remove(); document.querySelectorAll("[data-current-year]").forEach((element)=>element.textContent=new Date().getFullYear());
+configureLinks(".js-discord-link", config.discordInvite); configureLinks(".js-star-citizen-link", config.starCitizenOrganisation); document.querySelectorAll("[data-current-year]").forEach((element)=>element.textContent=new Date().getFullYear());
 
 const header=document.querySelector("[data-header]"); const updateHeader=()=>header?.classList.toggle("is-scrolled",window.scrollY>24); updateHeader(); window.addEventListener("scroll",updateHeader,{passive:true});
 const menuToggle=document.querySelector("[data-menu-toggle]"), nav=document.querySelector("[data-nav]"); const closeMenu=()=>{menuToggle?.setAttribute("aria-expanded","false");nav?.classList.remove("is-open")};
