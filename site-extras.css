@@ -169,3 +169,14 @@
     font-size: .43rem;
   }
 }
+
+
+/* Multi-day event date ranges */
+.event-date-block.is-multiday strong {
+  font-size: 1.18rem;
+  letter-spacing: -0.04em;
+}
+
+.event-copy > span {
+  line-height: 1.45;
+}

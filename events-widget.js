@@ -11,23 +11,7 @@
   const title = root.querySelector("[data-events-title]");
   const reset = root.querySelector("[data-events-reset]");
 
-  const allEvents = (Array.isArray(window.MV_EVENTS) ? window.MV_EVENTS : [])
-    .filter((event) => event && event.published !== false && event.date)
-    .map((event, index) => ({
-      ...event,
-      id: event.id || `mv-event-${index}`,
-      dateObject: new Date(`${event.date}T12:00:00`)
-    }))
-    .filter((event) => !Number.isNaN(event.dateObject.getTime()))
-    .sort((a, b) => a.dateObject - b.dateObject);
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const upcoming = allEvents.filter((event) => event.dateObject >= today);
-  const startingDate = upcoming[0]?.dateObject || today;
-  let visibleMonth = new Date(startingDate.getFullYear(), startingDate.getMonth(), 1);
-  let selectedDateKey = null;
+  const parseDate = (value) => new Date(`${value}T12:00:00`);
 
   const dateKey = (date) => [
     date.getFullYear(),
@@ -35,7 +19,45 @@
     String(date.getDate()).padStart(2, "0")
   ].join("-");
 
-  const dateFromKey = (key) => new Date(`${key}T12:00:00`);
+  const dateFromKey = (key) => parseDate(key);
+
+  const addDays = (date, amount) => {
+    const result = new Date(date);
+    result.setDate(result.getDate() + amount);
+    return result;
+  };
+
+  const allEvents = (Array.isArray(window.MV_EVENTS) ? window.MV_EVENTS : [])
+    .filter((event) => event && event.published !== false && event.date)
+    .map((event, index) => {
+      const startDate = parseDate(event.date);
+      const suppliedEndDate = event.endDate ? parseDate(event.endDate) : startDate;
+      const validEndDate = !Number.isNaN(suppliedEndDate.getTime()) && suppliedEndDate >= startDate
+        ? suppliedEndDate
+        : startDate;
+
+      return {
+        ...event,
+        id: event.id || `mv-event-${index}`,
+        dateObject: startDate,
+        endDateObject: validEndDate,
+        endDate: dateKey(validEndDate)
+      };
+    })
+    .filter((event) =>
+      !Number.isNaN(event.dateObject.getTime()) &&
+      !Number.isNaN(event.endDateObject.getTime())
+    )
+    .sort((a, b) => a.dateObject - b.dateObject);
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // An event remains upcoming while it is still running.
+  const upcoming = allEvents.filter((event) => event.endDateObject >= today);
+  const startingDate = upcoming[0]?.dateObject || today;
+  let visibleMonth = new Date(startingDate.getFullYear(), startingDate.getMonth(), 1);
+  let selectedDateKey = null;
 
   const escapeHtml = (value = "") => String(value)
     .replaceAll("&", "&amp;")
@@ -51,24 +73,90 @@
     year: "numeric"
   }).format(date);
 
-  const formatEventDate = (event) => new Intl.DateTimeFormat("en-GB", {
+  const shortDate = (date, options = {}) => new Intl.DateTimeFormat("en-GB", {
     weekday: "short",
     day: "numeric",
     month: "short",
-    year: "numeric"
-  }).format(event.dateObject);
+    year: "numeric",
+    ...options
+  }).format(date);
+
+  const isMultiDay = (event) => event.endDateObject > event.dateObject;
+
+  const eventRunsOn = (event, key) => {
+    const selected = dateFromKey(key);
+    return selected >= event.dateObject && selected <= event.endDateObject;
+  };
+
+  const eventDateLabel = (event) => {
+    if (!isMultiDay(event)) return shortDate(event.dateObject);
+
+    const sameYear = event.dateObject.getFullYear() === event.endDateObject.getFullYear();
+    const sameMonth = sameYear && event.dateObject.getMonth() === event.endDateObject.getMonth();
+
+    if (sameMonth) {
+      const start = new Intl.DateTimeFormat("en-GB", {
+        weekday: "short",
+        day: "numeric"
+      }).format(event.dateObject);
+
+      const end = new Intl.DateTimeFormat("en-GB", {
+        weekday: "short",
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      }).format(event.endDateObject);
+
+      return `${start} – ${end}`;
+    }
+
+    if (sameYear) {
+      const start = new Intl.DateTimeFormat("en-GB", {
+        weekday: "short",
+        day: "numeric",
+        month: "short"
+      }).format(event.dateObject);
+
+      const end = new Intl.DateTimeFormat("en-GB", {
+        weekday: "short",
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      }).format(event.endDateObject);
+
+      return `${start} – ${end}`;
+    }
+
+    return `${shortDate(event.dateObject)} – ${shortDate(event.endDateObject)}`;
+  };
+
+  const dateBlockDay = (event) => {
+    if (
+      isMultiDay(event) &&
+      event.dateObject.getMonth() === event.endDateObject.getMonth() &&
+      event.dateObject.getFullYear() === event.endDateObject.getFullYear()
+    ) {
+      return `${event.dateObject.getDate()}–${event.endDateObject.getDate()}`;
+    }
+
+    return String(event.dateObject.getDate()).padStart(2, "0");
+  };
+
+  const dateBlockMonth = (event) => event.dateObject
+    .toLocaleDateString("en-GB", { month: "short" })
+    .toUpperCase();
 
   const renderEventItems = (events) => events.map((event) => `
     <a class="event-item" href="${escapeHtml(event.url || "/")}">
-      <div class="event-date-block">
-        <strong>${String(event.dateObject.getDate()).padStart(2, "0")}</strong>
-        <span>${event.dateObject.toLocaleDateString("en-GB", { month: "short" }).toUpperCase()}</span>
+      <div class="event-date-block${isMultiDay(event) ? " is-multiday" : ""}">
+        <strong>${escapeHtml(dateBlockDay(event))}</strong>
+        <span>${escapeHtml(dateBlockMonth(event))}</span>
       </div>
       <div class="event-copy">
-        <span>${escapeHtml(event.game || "Community")}</span>
+        <span>${escapeHtml(event.game || "Community")}${isMultiDay(event) ? " · MULTI-DAY" : ""}</span>
         <h3>${escapeHtml(event.title || "Minervan Vanguard Event")}</h3>
         <p>${escapeHtml(event.summary || "")}</p>
-        <small>${escapeHtml(formatEventDate(event))}${event.time ? ` · ${escapeHtml(event.time)}` : ""}${event.timezone ? ` ${escapeHtml(event.timezone)}` : ""}</small>
+        <small>${escapeHtml(eventDateLabel(event))}${event.time ? ` · ${escapeHtml(event.time)}` : ""}${event.timezone ? ` ${escapeHtml(event.timezone)}` : ""}</small>
       </div>
       <span class="event-arrow" aria-hidden="true">→</span>
     </a>
@@ -77,7 +165,7 @@
   function renderList() {
     if (selectedDateKey) {
       const selectedDate = dateFromKey(selectedDateKey);
-      const eventsForDate = allEvents.filter((event) => event.date === selectedDateKey);
+      const eventsForDate = allEvents.filter((event) => eventRunsOn(event, selectedDateKey));
 
       kicker.textContent = "SELECTED DATE";
       title.textContent = formatDate(selectedDate);
@@ -114,6 +202,23 @@
     list.innerHTML = renderEventItems(upcoming.slice(0, 5));
   }
 
+  const eventCountByDate = () => {
+    const counts = {};
+
+    allEvents.forEach((event) => {
+      for (
+        let current = new Date(event.dateObject);
+        current <= event.endDateObject;
+        current = addDays(current, 1)
+      ) {
+        const key = dateKey(current);
+        counts[key] = (counts[key] || 0) + 1;
+      }
+    });
+
+    return counts;
+  };
+
   function renderCalendar() {
     monthLabel.textContent = visibleMonth.toLocaleDateString("en-GB", {
       month: "long",
@@ -126,11 +231,7 @@
     const offset = (firstDay.getDay() + 6) % 7;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const previousMonthDays = new Date(year, month, 0).getDate();
-    const eventCounts = allEvents.reduce((counts, event) => {
-      counts[event.date] = (counts[event.date] || 0) + 1;
-      return counts;
-    }, {});
-
+    const eventCounts = eventCountByDate();
     const cells = [];
 
     for (let index = 0; index < 42; index += 1) {

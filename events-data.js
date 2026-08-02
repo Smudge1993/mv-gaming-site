@@ -6,14 +6,15 @@
   Fields:
   - title
   - game
-  - date: YYYY-MM-DD
+  - date: first day, in YYYY-MM-DD format
+  - endDate: optional final day, in YYYY-MM-DD format; the final day is included
   - time: for example "20:00"
   - timezone: for example "BST", "GMT", "UTC", or "ET"
   - summary
   - url: /starfarers.html, /star-citizen.html, or /torn.html
   - published: false hides an event without deleting it
 
-  Example:
+  One-day example:
 
   {
     title: "Star Citizen Operations Night",
@@ -25,18 +26,22 @@
     url: "/star-citizen.html",
     published: true
   }
+
+  Multi-day example:
+
+  {
+    title: "Minervan Vanguard Fleet Weekend",
+    game: "Star Citizen",
+    date: "2026-08-14",
+    endDate: "2026-08-16",
+    time: "20:00",
+    timezone: "BST",
+    summary: "A three-day programme of organisation operations and casual play.",
+    url: "/star-citizen.html",
+    published: true
+  }
 */
 
 window.MV_EVENTS = [
-  {
-    title: "Friday Operations Night",
-    game: "Star Citizen",
-    date: "2026-08-01",
-    time: "20:00",
-    timezone: "BST",
-    summary: "Come fight it out in torn as we try to hold onto our gold ranking!",
-    url: "/torn.html",
-    published: true
-  }
-];
+  // Add live events here.
 ];
