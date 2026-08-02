@@ -68,3 +68,104 @@
   .event-arrow { display:none; }
   .calendar-day { font-size:.64rem; }
 }
+
+
+/* Calendar day interaction */
+.calendar-day {
+  width: 100%;
+  padding: 0;
+  appearance: none;
+  font: inherit;
+  background: rgba(255,255,255,.005);
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease, color .16s ease, transform .16s ease;
+}
+
+.calendar-day:hover,
+.calendar-day:focus-visible {
+  z-index: 1;
+  color: white;
+  border-color: rgba(79,130,183,.58);
+  background: rgba(47,91,137,.16);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.calendar-day.is-selected {
+  z-index: 2;
+  color: white;
+  border-color: var(--blue-bright);
+  background: rgba(47,91,137,.3);
+  box-shadow: inset 0 0 0 1px rgba(121,178,230,.28);
+}
+
+.calendar-day small {
+  position: absolute;
+  right: 8%;
+  bottom: 7%;
+  display: grid;
+  place-items: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  color: #06101a;
+  background: var(--blue-bright);
+  font-size: .48rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.calendar-day.has-event::after {
+  display: none;
+}
+
+.events-list-heading {
+  grid-template-columns: minmax(0,1fr) auto;
+  align-items: end;
+  gap: 1rem;
+}
+
+.events-list-heading > div {
+  display: grid;
+  gap: .2rem;
+}
+
+.events-reset {
+  padding: .58rem .75rem;
+  border: 1px solid rgba(79,130,183,.38);
+  border-radius: .42rem;
+  color: #a9bed2;
+  background: rgba(47,91,137,.08);
+  cursor: pointer;
+  font-size: .55rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.events-reset:hover,
+.events-reset:focus-visible {
+  color: white;
+  border-color: var(--blue-bright);
+  background: rgba(47,91,137,.2);
+}
+
+@media (max-width: 620px) {
+  .events-list-heading {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .events-reset {
+    justify-self: start;
+  }
+
+  .calendar-day small {
+    right: 4%;
+    bottom: 4%;
+    min-width: 14px;
+    height: 14px;
+    font-size: .43rem;
+  }
+}

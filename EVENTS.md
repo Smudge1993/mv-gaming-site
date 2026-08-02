@@ -19,3 +19,5 @@ Useful links: `/starfarers.html`, `/star-citizen.html`, `/torn.html`.
 
 Dates must use `YYYY-MM-DD`. Past events leave the upcoming feed automatically.
 Set `published: false` to hide an event without deleting it.
+
+Calendar days are clickable. Selecting any date filters the event panel to that day, including dates with no events.
